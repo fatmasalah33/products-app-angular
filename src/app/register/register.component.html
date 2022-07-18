@@ -1,0 +1,133 @@
+<h2>Register| Reactive Form</h2>
+
+<form [formGroup]="registerForm" (ngSubmit)="handleFormSubmit()">
+    <div class="mb-3">
+        <label for="name" class="form-label">name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          aria-describedby="nameHelp"
+          formControlName="name"
+    
+        />
+        <div
+          id="nameHelp"
+          *ngIf="
+          registerForm.controls['name'].touched &&
+        registerForm.controls['name'].invalid
+      "
+          class="form-text text-danger"
+        >
+          <small *ngIf="registerForm.controls['name'].errors?.['required']"
+            >This field is required</small
+          >
+       
+    
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">email</label>
+        <input
+          type="text"
+          class="form-control"
+          id="email"
+          aria-describedby="emailHelp"
+          formControlName="email"
+        />
+        <div
+          id="emailHelp"
+          *ngIf=" registerForm.controls['email'].touched &&
+          registerForm.controls['email'].invalid"
+          class="form-text text-danger"
+        >
+          <small *ngIf="registerForm.controls['email'].errors?.['required']"
+            >This field is required</small
+          >
+        
+          <small *ngIf="registerForm.controls['email'].errors?.['email']"
+            >Please enter a valid email</small
+          >
+        </div>
+      </div>
+  <div class="mb-3">
+    <label for="username" class="form-label">username</label>
+    <input
+      type="text"
+      class="form-control"
+      id="username"
+      aria-describedby="usernameHelp"
+      formControlName="username"
+
+    />
+    <div
+      id="usernameHelp"
+      *ngIf=" registerForm.controls['username'].touched &&
+      registerForm.controls['username'].invalid"
+      class="form-text text-danger"
+    >
+      <small *ngIf="registerForm.controls['username'].errors?.['required']"
+        >This field is required</small
+      >
+      <small *ngIf="registerForm.controls['username'].errors?.['pattern']"
+      >Please enter a valid username</small
+    >
+    
+    
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label"> password</label>
+    <input
+      type="text"
+      class="form-control"
+      id=" password"
+      aria-describedby=" passwordHelp"
+      formControlName="password"
+    />
+    <div
+      id="passwordHelp"
+      *ngIf="registerForm.controls['password'].touched &&
+      registerForm.controls['password'].invalid"
+      class="form-text text-danger"
+    >
+      <small *ngIf="registerForm.controls['password'].errors?.['required'] "
+        >This field is required</small
+      >
+      
+      <small *ngIf="registerForm.controls['password'].errors?.['pattern']"
+        >Please enter a valid password "Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters</small
+      >
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="confirmpassword" class="form-label"> confirmpassword</label>
+    <input
+      type="text"
+      class="form-control"
+      id=" confirmpassword"
+      aria-describedby="confirmpasswordHelp"
+      formControlName="confirmpassword"
+
+    />
+    <div
+      id="confirmpasswordHelp"
+      *ngIf="registerForm.controls['confirmpassword'].touched &&
+      registerForm.controls['confirmpassword'].invalid"
+      class="form-text text-danger"
+    >
+      <small *ngIf="registerForm.controls['confirmpassword'].errors?.['required']"
+        >This field is required</small
+      >
+      <small *ngIf="registerForm.controls['confirmpassword'].errors?.['mustMatch']"
+      >This field is required</small
+    >
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid" [routerLink]="['/login']">Submit</button>
+</form>
+<p class="text-center text-muted mt-5 mb-0">Have already an account? <a [routerLink]="['/login']"
+    class="fw-bold text-body"><u>Login here</u></a></p>
+
+
