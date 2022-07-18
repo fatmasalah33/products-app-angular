@@ -21,6 +21,23 @@ totalprice:number=0;
 s:number=this._CartService.l
 results:any=this._CartService.results
   ngOnInit(): void {
+    this.total=this.z[this.x.id]*this.x.price
+    this.y[this.x.id]=this.total
+    
+    console.log(this.y)
+    console.log(this.y)
+    this.results = this.y.filter((id: {}) => {
+      if (Object.keys(id).length !== 0) {
+        return false;
+      }
+    
+      return true;
+    });
+  
+    this.sum = this.results.reduce((accumulator: any, object: any) => {
+      console.log(object)
+      return accumulator + object;
+    }, 0);
   }
   decreaseQuantity(id: number,price:number) {
     this._CartService.decreaseQuantity(id);

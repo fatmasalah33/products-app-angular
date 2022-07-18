@@ -27,6 +27,7 @@ export class CartService {
     }else{
     this.parentarray.push(newitem)
     console.log(this.parentarray)
+ 
   }
   this.quantityarray[newitem.id]=1
     this.totalpricearray[newitem.id]=newitem.price
@@ -40,7 +41,8 @@ export class CartService {
     });
   this.l=this.results.length
   console.log(this.results.length)
-    this.sum = this.results.reduce((accumulator: any, object: any) => {
+    this.sum += newitem.price
+    this.results.reduce((accumulator: any, object: any) => {
       console.log(object)
       return accumulator + object;
     }, 0);
