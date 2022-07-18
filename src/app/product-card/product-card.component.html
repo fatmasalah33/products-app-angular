@@ -7,7 +7,7 @@
         </a>
         <p class="card-text text-center">category: {{product.category}}</p>
         <p class="card-text text-center">Price:  {{product.price| currency:'EGP'}}</p>
-        <p class="card-text text-center" [style.color]="product.rating.rate>2?'green':'red'" >{{product.rating.rate|count}}</p>
+        <p class="card-text text-center" [style.color]="product.rating.rate>2?'green':'red'" >Rating: {{product.rating.rate}}</p>
         <button class="btn btn-primary" (click)="goToDetails(product.id)">
             Add to cart</button>
     </div>

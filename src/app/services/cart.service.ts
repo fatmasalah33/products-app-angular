@@ -21,6 +21,9 @@ export class CartService {
    
       this.quantityarray[indexItem]++;
   }
+  ngOnInit(): void {
+ 
+  }
   addItem(newitem: any){
     if(this.parentarray.includes(newitem)){
       alert('the item is aleardy exist')
